@@ -6,38 +6,54 @@ body{
 }
 
 .wrapper {
-    width: 100%;
-    perspective: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transform-style: preserve-3d;
-}
-
-section .right {
-    justify-content: right;
-}
-
-section .left {
-    justify-content: left;
-}
-
-.background,
-.foreground {
-    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
 }
 
 .background {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.foreground.sign {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foreground.car {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background.left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+img {
     width: 100%;
-    transform: translateZ(-10px) scale(2);
+    height: auto;
 }
 
 .song {
-    width: 30%;
+    width: 60%;
     aspect-ratio: 1 / 1;
     background-color: #fff;
     margin: 10px 10px;
