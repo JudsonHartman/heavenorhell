@@ -60,3 +60,11 @@ img {
     border-radius: 50px;
     box-shadow: 0 15px 15px rgba(0, 0, 0, .3);
 }
+
+.song.right {
+    background-color: #6e6a66;
+}
+
+.song.left {
+    background-color: #cecfca;
+}
