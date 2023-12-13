@@ -28,7 +28,11 @@ async function loadFile(fileName) {
 
 async function start(e) {
   let index = 1;
-  const lines = await loadFile('./lyrics/heavenorhell.lrc');
+  const linesContainer = document.querySelector('.lyric');
+    const lrcFilePath = linesContainer.dataset.lrcFile; // Assuming you have a data attribute storing the file path
+
+    const lines = await loadFile(lrcFilePath);
+
   
   lines.forEach(line => {
     line = line.trim();
@@ -55,6 +59,3 @@ setInterval(() => {
     progress.style.strokeDashoffset = 1414 - (1414 * ((current / audio.duration) * 100)) / 100;
   });
 }, 1000); // this function run all second
-
-
-
