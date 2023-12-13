@@ -1,67 +1,4 @@
-body{
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #fcf0e2;
-}
-
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-}
-
-.background {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.foreground.sign {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.foreground.car {
-    grid-column: 2;
-    grid-row: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.background.left {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-img {
-    width: 100%;
-    height: auto;
-}
-
-.song {
-    width: 500px;
-    aspect-ratio: 1 / 1;
-    background-color: grey;
-    margin: 10px 10px;
-    border-radius: 50px;
-    box-shadow: 0 15px 15px rgba(0, 0, 0, .3);
-}
-
-.box {
+.box2 {
     width: 500px;
     height: 500px;
     position: relative;
@@ -73,7 +10,7 @@ img {
     align-items: center;
 }
 
-.box > svg {
+.box2 > svg {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -81,29 +18,29 @@ img {
     left: 0;
 }
 
-.circle {
+.circle2 {
     fill: none;
-    stroke: url(#gradient);
+    stroke: url(#gradient2);
     stroke-width: 20;
     stroke-linecap: round;
 }
 
-.blur {
+.blur2 {
     filter: blur(50px);
 }
 
-.backcircle {
+.backcircle2 {
     stroke: rgba(255, 255, 255, .2);
 }
 
-.progress {
+.progress2 {
     stroke-dasharray: 1414;
     stroke-dashoffset: 1414;
     transform-origin: center center;
     transform: rotateZ(-90deg);
 }
 
-.texts {
+.texts2 {
     width: 50%;
     height: 50%;
     display: flex;
@@ -112,7 +49,7 @@ img {
     text-align: center;
 }
 
-.lyric {
+.lyric2 {
     font-size: 1.5em;
     transition: .5s;
     width: 100%;
@@ -121,11 +58,11 @@ img {
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     font-weight: bold;
-    animation: gradient 10s linear infinite;
+    animation: gradient2 10s linear infinite;
     font-weight: bold;
 }
 
-@keyframes gradient {
+@keyframes gradient2 {
     0% {
         background-position: 0% 0%;
     }
@@ -134,7 +71,7 @@ img {
     }
 }
 
-.play {
+.play2 {
     background: none;
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent;
@@ -145,7 +82,7 @@ img {
     transition: .5s ease-out;
 }
 
-.time {
+.time2 {
     position: absolute;
     top: 15%;
     font-size: 1.5em;

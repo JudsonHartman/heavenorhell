@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heaven or Hell</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
 </head>
 <body>
     <div class="wrapper">
@@ -35,28 +35,30 @@
                             <div class="play"></div>
                         </div>
                     </section>
-                    <script src="scripts.js"></script>
+                    <script src="./scripts/heavenorhell.js"></script>
+                    <link rel="stylesheet" href="./styles/heavenorhell.css">
                 </div>
                 <div class="song right 2">
-                    <audio src="./audio/euphoria.mp3"></audio>
-                    <section class="box">
+                    <audio id="audio2" src="./audio/euphoria.mp3"></audio>
+                    <section class="box2">
                         <svg>
-                            <linearGradient id="gradient">
+                            <linearGradient id="gradient2">
                                 <stop offset="0%" stop-color="red" />
                                 <stop offset="50%" stop-color="blue" />
                                 <stop offset="100%" stop-color="green" />
                             </linearGradient>
-                            <circle class="circle progress" cx="250" cy="250" r="225"></circle>
-                            <circle class="circle blur progress" cx="250" cy="250" r="225"></circle>
-                            <circle class="circle backcircle" cx="250" cy="250" r="225"></circle>
+                            <circle class="circle2 progress2" cx="250" cy="250" r="225"></circle>
+                            <circle class="circle2 blur2 progress2" cx="250" cy="250" r="225"></circle>
+                            <circle class="circle2 backcircle2" cx="250" cy="250" r="225"></circle>
                         </svg>
-                        <div class="texts">
-                            <span class="time">00:00</span>
-                            <div class="lyric" data-lrc-file="./lyrics/euphoria.lrc"></div>
-                            <div class="play"></div>
+                        <div class="texts2">
+                            <span class="time2">00:00</span>
+                            <div class="lyric2" data-lrc-file="./lyrics/euphoria.lrc"></div>
+                            <div class="play2"></div>
                         </div>
-                    </section>
-                    <script src="scripts.js"></script>
+                    </section>                    
+                    <script src="./scripts/euphoria.js"></script>
+                    <link rel="stylesheet" href="./styles/euphoria.css">
                 </div>
                 <div class="song right 3">
                     <audio src="./audio/cardigan.mp3"></audio>
