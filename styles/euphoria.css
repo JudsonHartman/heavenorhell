@@ -71,7 +71,7 @@
     }
 }
 
-.play2 {
+/* .play2 {
     background: none;
     border-top: 50px solid transparent;
     border-bottom: 50px solid transparent;
@@ -80,6 +80,46 @@
     z-index: 10;
     cursor: pointer;
     transition: .5s ease-out;
+    position: absolute;
+} */
+
+.play-container2 {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    margin: 20px;
+}
+
+.play2 {
+    background-color: #049cc8; /* Add background color */
+    width: 75px; /* Set width */
+    height: 100px; /* Set height */
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%); /* Create a triangle shape */
+    transition: .5s ease-out;
+    position: absolute;
+    opacity: 1; /* Set initial opacity */
+    pointer-events: initial; /* Set initial pointer events */
+}
+
+.stop2 {
+    background-color: #FF0000; /* Add background color for stop button */
+    width: 75px; /* Set width */
+    height: 100px; /* Set height */
+    clip-path: polygon(0% 0%, 50% 0%, 50% 100%, 0% 100%); /* Create a rectangle shape */
+    position: absolute;
+    opacity: 0; /* Set initial opacity to hide */
+    pointer-events: none; /* Set initial pointer events to none */
+    transition: .5s ease-out;
+}
+
+.play-box2 {
+    background-color: #000; /* Background color of the box */
+    width: 150px; /* Set width, slightly larger than the play button */
+    height: 150px; /* Set height, slightly larger than the play button */
+    position: absolute;
+    top: -25px; /* Adjust to position the box relative to the play button */
+    right: -25px; /* Adjust to position the box relative to the play button */
+    border-radius: 50%;
 }
 
 .time2 {
