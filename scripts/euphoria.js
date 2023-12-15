@@ -27,11 +27,11 @@
 // }
 
 // async function start2(e) {
-//   let index = 1;
-//   const linesContainer = document.querySelector('.lyric2');
-//   const lrcFilePath = linesContainer.dataset.lrcFile; // Assuming you have a data attribute storing the file path
+  // let index = 1;
+  // const linesContainer = document.querySelector('.lyric2');
+  // const lrcFilePath = linesContainer.dataset.lrcFile; // Assuming you have a data attribute storing the file path
 
-//   const lines = await loadFile2(lrcFilePath);
+  // const lines = await loadFile2(lrcFilePath);
 
 //   lines.forEach(line => {
 //     line = line.trim();
@@ -93,25 +93,37 @@ function stopMusic() {
 
 audio2.addEventListener('playing', start2);
 
-function start2() {
-    let index = 1;
-    const linesContainer = document.querySelector('.lyric2');
-    const lrcFilePath = "./lyrics/euphoria.lrc";
+async function loadFile2(fileName) {
+  try {
+    const response = await fetch(fileName);
+    const data = await response.text();
+    const lines = data.trim().split("\n");
+    return lines;
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
 
-    loadFile2(lrcFilePath).then(lines => {
-        lines.forEach(line => {
-            line = line.trim();
-            let minute = parseInt(line.substr(1, 2));
-            let second = parseInt(line.substr(4, 5));
-            if (isNaN(minute) || isNaN(second)) return;
+async function start2(e) {
+  let index = 1;
+  const linesContainer = document.querySelector('.lyric2');
+  const lrcFilePath = linesContainer.dataset.lrcFile; // Assuming you have a data attribute storing the file path
 
-            let text = line.substr(line.indexOf(']') + 1, line.length).trim();
-            setTimeout(() => {
-                lyric2.style.transform = `rotateZ(${index++ * 360}deg)`;
-                lyric2.innerText = text;
-            }, (second + (minute * 60)) * 1000);
-        });
-    });
+  const lines = await loadFile2(lrcFilePath);
+
+  lines.forEach(line => {
+    line = line.trim();
+    let minute = parseInt(line.substr(1, 2));
+    let second = parseInt(line.substr(4, 5));
+    if (isNaN(minute) || isNaN(second)) return;
+
+    let text = line.substr(line.indexOf(']') + 1, line.length).trim();
+    setTimeout(() => {
+      lyric2.style.transform = `rotateZ(${index++ * 360}deg)`;
+      lyric2.innerText = text;
+    }, (second + (minute * 60)) * 1000);
+  });
 }
 
 setInterval(() => {
