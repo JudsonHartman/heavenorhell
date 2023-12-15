@@ -73,6 +73,7 @@ play2.addEventListener('click', e => {
   play2.style.pointerEvents = 'none';
   stop2.style.opacity = '1';
   stop2.style.pointerEvents = 'initial';
+  lyric2.style.opacity = '1';
 });
 
 stop2.addEventListener('click', stopMusic);
