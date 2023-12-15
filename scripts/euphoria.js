@@ -155,7 +155,7 @@ function playMusic() {
         play2.style.pointerEvents = 'none';
         stop2.style.opacity = '1';
         stop2.style.pointerEvents = 'initial';
-        startLyrics();
+        showLyrics();
     }
 }
 
@@ -169,6 +169,7 @@ function stopMusic() {
         play2.style.pointerEvents = 'initial';
         stop2.style.opacity = '0';
         stop2.style.pointerEvents = 'none';
+        hideLyrics();
         clearLyrics();
     }
 }
@@ -176,37 +177,37 @@ function stopMusic() {
 audio2.addEventListener('playing', start2);
 
 async function loadFile2(fileName) {
-  try {
-    const response = await fetch(fileName);
-    const data = await response.text();
-    const lines = data.trim().split("\n");
-    return lines;
-  } catch (err) {
-    console.error(err);
-    return [];
-  }
+    try {
+        const response = await fetch(fileName);
+        const data = await response.text();
+        const lines = data.trim().split("\n");
+        return lines;
+    } catch (err) {
+        console.error(err);
+        return [];
+    }
 }
 
 async function start2(e) {
-  let index = 1;
-  const linesContainer = document.querySelector('.lyric2');
-  const lrcFilePath = linesContainer.dataset.lrcFile;
+    let index = 1;
+    const linesContainer = document.querySelector('.lyric2');
+    const lrcFilePath = linesContainer.dataset.lrcFile;
 
-  const lines = await loadFile2(lrcFilePath);
+    const lines = await loadFile2(lrcFilePath);
 
-  lines.forEach(line => {
-    line = line.trim();
-    let minute = parseInt(line.substr(1, 2));
-    let second = parseInt(line.substr(4, 5));
-    if (isNaN(minute) || isNaN(second)) return;
+    lines.forEach(line => {
+        line = line.trim();
+        let minute = parseInt(line.substr(1, 2));
+        let second = parseInt(line.substr(4, 5));
+        if (isNaN(minute) || isNaN(second)) return;
 
-    let text = line.substr(line.indexOf(']') + 1, line.length).trim();
-    const timeoutId = setTimeout(() => {
-      lyric2.style.transform = `rotateZ(${index++ * 360}deg)`;
-      lyric2.innerText = text;
-    }, (second + (minute * 60)) * 1000);
-    timeouts2.push(timeoutId);
-  });
+        let text = line.substr(line.indexOf(']') + 1, line.length).trim();
+        const timeoutId = setTimeout(() => {
+            lyric2.style.transform = `rotateZ(${index++ * 360}deg)`;
+            lyric2.innerText = text;
+        }, (second + (minute * 60)) * 1000);
+        timeouts2.push(timeoutId);
+    });
 }
 
 setInterval(() => {
@@ -226,7 +227,10 @@ function clearLyrics() {
     timeouts2 = [];
 }
 
-function startLyrics() {
-    clearLyrics();
-    start2();
+function showLyrics() {
+    lyric2.style.visibility = 'visible';
+}
+
+function hideLyrics() {
+    lyric2.style.visibility = 'hidden';
 }
