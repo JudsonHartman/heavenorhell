@@ -96,7 +96,7 @@ audio2.addEventListener('playing', start2);
 function start2() {
     let index = 1;
     const linesContainer = document.querySelector('.lyric2');
-    const lrcFilePath = linesContainer.dataset.lrcFile;
+    const lrcFilePath = "./lyrics/euphoria.lrc";
 
     loadFile2(lrcFilePath).then(lines => {
         lines.forEach(line => {
